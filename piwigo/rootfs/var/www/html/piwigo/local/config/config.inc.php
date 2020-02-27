@@ -1,0 +1,48 @@
+<?php
+/* Custom config to allow for our preferred plugins */
+
+$conf['upload_form_all_types'] = true;
+$conf['show_exif'] = true;
+$conf['show_exif_fields'] = array(
+  'Make',
+  'Model',
+  'ExifVersion',
+  'Software',
+  'DateTimeOriginal',
+  'FNumber',
+  'ExposureBiasValue',
+  'FILE;FileSize',
+  'ExposureTime',
+  'Flash',
+  'ISOSpeedRatings',
+  'FocalLength',
+  'FocalLengthIn35mmFilm',
+  'WhiteBalance',
+  'ExposureMode',
+  'MeteringMode',
+  'ExposureProgram',
+  'LightSource',
+  'Contrast',
+  'Saturation',
+  'Sharpness',
+  'bitrate',
+  'channel',
+  'date_creation',
+  'display_aspect_ratio',
+  'duration',
+  'filesize',
+  'format',
+  'formatprofile',
+  'codecid',
+  'frame_rate',
+  'latitude',
+  'longitude',
+  'make',
+  'model',
+  'playtime_seconds',
+  'sampling_rate',
+  'type',
+  'resolution',
+  'rotation',
+  );
+?>

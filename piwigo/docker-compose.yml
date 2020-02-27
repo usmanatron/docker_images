@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  mariadb:
+    container_name: piwigo-db
+    image: mariadb:10.4.6-bionic
+    restart: always
+    volumes:
+      - ~/dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: piwigo
+      MYSQL_USER: piwigo
+      MYSQL_PASSWORD: piwigo_password
+
+  app:
+    container_name: piwigo-app
+    image: usmanatron/piwigo:v0.0.8
+    restart: always
+    ports:
+      - 800:80
+    volumes:
+      - ~/galleries:/var/www/html/piwigo/galleries
+    environment:
+      PIWIGO_DB_HOST: piwigo-db
+      PIWIGO_DB_NAME: piwigo
+      PIWIGO_DB_USER: piwigo
+      PIWIGO_DB_PASSWORD: piwigo_password
+      PIWIGO_ADMIN_USER: admin
+      PIWIGO_ADMIN_PASSWORD: pass
+      PIWIGO_ADMIN_EMAIL: a@b.c
+
+      
