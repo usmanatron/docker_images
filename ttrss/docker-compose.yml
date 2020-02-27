@@ -1,0 +1,13 @@
+  ttrss:
+    build:
+      context: ./
+    image: ttrss:20200227
+    environment:
+      DB_HOST: ${COMPOSE_TTRSS_DB_HOST}
+      DB_PORT: ${COMPOSE_TTRSS_DB_PORT}
+      DB_NAME: ${COMPOSE_TTRSS_DB_NAME}
+      DB_USER: ${COMPOSE_TTRSS_DB_USERNAME}
+      DB_PASS: ${COMPOSE_TTRSS_DB_PASSWORD}
+      HOME_URL: ${COMPOSE_TTRSS_HOME_URL}
+    ports:
+      - 8080:8080
