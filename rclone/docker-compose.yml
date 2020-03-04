@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  rclone_nas:
+    build:
+      context: ./
+      args:
+        VERSION: ${COMPOSE_RCLONE_VERSION}
+    image: rclone:${COMPOSE_RCLONE_VERSION}
+    volumes:
+      - type: volume
+        source: rclone_nas
+        target: /data
+        read_only: true
+        bind:
+          propagation: shared
+    environment:
+      REMOTE_NAME: ${COMPOSE_RCLONE_REMOTE_NAME}
+      RCLONE_CONFIG_REMOTE_USER: ${COMPOSE_RCLONE_REMOTE_USERNAME}
+      RCLONE_CONFIG_REMOTE_KEY: ${COMPOSE_RCLONE_REMOTE_PASSWORD}
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - "/dev/fuse"
