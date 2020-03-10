@@ -1,23 +1,33 @@
 version: "3.7"
 
 services:
-  rclone_nas:
+  rclone:
     build:
       context: ./
       args:
         VERSION: ${COMPOSE_RCLONE_VERSION}
     image: rclone:${COMPOSE_RCLONE_VERSION}
     volumes:
-      - type: volume
-        source: rclone_nas
+      - type: bind
+        source: rclone
         target: /data
         read_only: true
         bind:
           propagation: shared
     environment:
       REMOTE_NAME: ${COMPOSE_RCLONE_REMOTE_NAME}
+      RCLONE_CONFIG_REMOTE_TYPE: 
+      RCLONE_CONFIG_REMOTE_AUTH:
+      RCLONE_CONFIG_REMOTE_AUTH_VERSION:
+      RCLONE_CONFIG_REMOTE_STORAGE_URL:
       RCLONE_CONFIG_REMOTE_USER: ${COMPOSE_RCLONE_REMOTE_USERNAME}
       RCLONE_CONFIG_REMOTE_KEY: ${COMPOSE_RCLONE_REMOTE_PASSWORD}
+      RCLONE_CONFIG_REMOTE_DOMAIN:
+      RCLONE_CONFIG_REMOTE_TENANT:
+      RCLONE_CONFIG_REMOTE_TENANT_DOMAIN:
+      RCLONE_CONFIG_REMOTE_REGION:
+      RCLONE_CONFIG_REMOTE_ENDPOINT_TYPE:
+      RCLONE_CONFIG_REMOTE_STORAGE_POLICY:
     cap_add:
       - SYS_ADMIN
     devices:
