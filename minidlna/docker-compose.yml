@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  minidlna:
+    container_name: minidlna
+    image: usmanatron/minidlna:latest
+    restart: always
+    ports:
+      - 80:8200
+      - 1900:1900
+    volumes:
+      - ~/music:/data
