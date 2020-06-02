@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VER="2.4.2"
+
+if [[ $DOCKER_TAG = v* ]]
+then
+  VER=$DOCKER_TAG
+fi
+
+docker build --build-arg TRACKS_VERSION="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
