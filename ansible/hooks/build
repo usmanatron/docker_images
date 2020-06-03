@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VER="2.9.5"
+
+if [[ $DOCKER_TAG = v* ]]
+then
+  VER=$DOCKER_TAG
+fi
+
+docker build --build-arg ANSIBLE_VERSION="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
