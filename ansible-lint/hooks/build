@@ -8,4 +8,4 @@ then
   VER="$DOCKER_TAG"
 fi
 
-docker build --build-arg ANSIBLE-LINT_VERSION="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
+docker build --build-arg ANSIBLE_LINT_VERSION="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
