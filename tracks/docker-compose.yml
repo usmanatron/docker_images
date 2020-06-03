@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  pgsql:
+    environment:
+      POSTGRES_PASSWORD: trackss
+      POSTGRES_DB: tracks
+    ports:
+      - "5432:5432"
+    volumes:
+      - "postgres:/var/lib/postgresql/data"
+    image:
+      postgres
+
+  tracks:
+
+    environment:
+      DATABASE_HOST: "pgsql"
+      DATABASE_PORT: 5432
+      DATABASE_NAME: "tracks"
+      DATABASE_USERNAME: "postgres"
+      DATABASE_PASSWORD: "trackss"
+
+    ports:
+      - "8081:80"
+    image:
+      utracks:latest
+
+volumes:
+  postgres:
+  upload:
+

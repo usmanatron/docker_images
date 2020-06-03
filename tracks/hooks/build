@@ -2,9 +2,10 @@
 
 VER="2.4.2"
 
-if [[ $DOCKER_TAG = v* ]]
+# https://stackoverflow.com/questions/17056374/how-can-we-check-if-string-is-a-version-number-or-not
+if [[ $DOCKER_TAG =~ ^[0-9]+(\.[0-9]+){1,3}$ ]]
 then
-  VER=$DOCKER_TAG
+  VER="$DOCKER_TAG"
 fi
 
 docker build --build-arg TRACKS_VERSION="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .

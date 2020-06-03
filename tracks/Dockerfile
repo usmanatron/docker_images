@@ -1,5 +1,6 @@
 FROM ruby:2.6.6-alpine3.11
-ARG TRACKS_VERSION=2.4.2
+
+ARG TRACKS_VERSION
 ENV RAILS_ENV=production
 
 RUN apk add postgresql-client postgresql-dev nodejs build-base ruby-dev \
