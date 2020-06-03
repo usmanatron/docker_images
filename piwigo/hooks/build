@@ -1,0 +1,11 @@
+#!/bin/bash
+
+VER="2.10.1"
+
+# https://stackoverflow.com/questions/17056374/how-can-we-check-if-string-is-a-version-number-or-not
+if [[ $DOCKER_TAG =~ ^[0-9]+(\.[0-9]+){1,3}$ ]]
+then
+  VER="$DOCKER_TAG"
+fi
+
+docker build --build-arg PIWIGO_VER="$VER" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .

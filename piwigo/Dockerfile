@@ -1,6 +1,6 @@
 FROM php:7.2-apache
 
-ARG PIWIGO_VER=2.9.5
+ARG PIWIGO_VER
 
 RUN apt-get update -y && \
     apt-get install -y libpng-dev libxml2-dev libldap2-dev unzip netcat ffmpeg mediainfo libmagickwand-dev --no-install-recommends && \
