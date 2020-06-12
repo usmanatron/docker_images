@@ -27,7 +27,8 @@ RUN cd /var/www && \
     gem install sassc -v '2.0.0' --source 'https://rubygems.org/' && \
     bundle install --without development test mysql sqlite
 RUN cd /var/www && \
-    bundle exec rake assets:precompile
+    bundle exec rake assets:precompile && \
+    chmod +x start.sh
 
 VOLUME ["/var/www"]
 EXPOSE 80
