@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  keeweb:
+    image: usmanatron/keeweb:1.15.5
+    ports:
+      - 8009:80
