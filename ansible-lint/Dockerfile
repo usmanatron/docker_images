@@ -1,4 +1,4 @@
-FROM usmanatron/ansible:2.9.5
+FROM usmanatron/ansible:2.10.3
 
 ARG ANSIBLE_LINT_VERSION
 
