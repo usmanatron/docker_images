@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VER="4.2.0"
+VER="4.3.7"
 
 # https://stackoverflow.com/questions/17056374/how-can-we-check-if-string-is-a-version-number-or-not
 if [[ $DOCKER_TAG =~ ^[0-9]+(\.[0-9]+){1,3}$ ]]
